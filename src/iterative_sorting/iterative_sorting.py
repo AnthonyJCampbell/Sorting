@@ -38,16 +38,46 @@ def bubble_sort( arr ):
             # We want to check if the value to the right is smaller than the current value
             if arr[j] > arr[j+1]:
                 print(f"\n{arr[j]} is larger than {arr[j+1]} and should be switched") 
-                temp = arr[j+1]
-                arr[j+1] = arr[j]
-                arr[j] = temp
+                # Swap the two values
+                arr[j], arr[j+1] = arr[j+1], arr[j]
 
     # If no swap is performed, the array has been sorted
     return arr
 
-bubble_sort([3, 3, 1, 4, 2])
+# print(bubble_sort([3, 3, 1, 23, 12313, 91,319, 0, 19, 2, 10, 4, 2]))
 
 # STRETCH: implement the Count Sort function below
+# counting sort is based on keys between a specific range
+# It works by counting the number of objects having distinct values.
 def count_sort( arr, maximum=-1 ):
+    # Create count list with the same length as the array, comprised of zero
+    count = [0] * maximum
+    
+    # Loop over values in array
+    for i in range(len(arr)):
+        # For every instance of a number in the array, add a 1 to the respective position in count
+        count[arr[i]] += 1
+    
+    # Modify count array so that each element at each index stores the sum of previous counts
+    sum_of_counts = 0
+    for i in range(len(count)):
+        sum_of_counts = sum_of_counts + count[i]
+        count[i] = sum_of_counts
 
-    return arr
+    output = [0] * len(arr)
+    for j in range(len(arr)):
+        # Take value at arr[i]
+        array_val = arr[j]
+
+        # Get the designated position from the count list
+        designated_position = count[arr[j]] - 1 # value of count of value arr[j]
+
+        # Set array value to designated position
+        output[designated_position] = array_val
+
+        # Subtract 1 from the value of count
+        count[arr[j]] -= 1
+        
+    return output
+
+print(count_sort([3, 1, 7, 7, 2], 10))
