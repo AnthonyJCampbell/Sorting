@@ -32,18 +32,15 @@ def selection_sort( arr ):
 def bubble_sort( arr ):
     # Loop over every value in the array
     for i in range(len(arr)):
-        print(f"\n i = {i}")
         # For every value, we want to move accross the rest of the array 
         # Until we reach the end or come accross a value that's larger than the current one
         for j in range(0, len(arr) - i - 1):
-            print(f" j = {j}")
             # We want to check if the value to the right is smaller than the current value
             if arr[j] > arr[j+1]:
                 print(f"\n{arr[j]} is larger than {arr[j+1]} and should be switched") 
                 temp = arr[j+1]
                 arr[j+1] = arr[j]
                 arr[j] = temp
-                print(arr)
 
     # If no swap is performed, the array has been sorted
     return arr
