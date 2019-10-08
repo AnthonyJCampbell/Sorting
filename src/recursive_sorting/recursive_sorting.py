@@ -34,21 +34,27 @@ def merge( arrA, arrB ):
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
-    # Base case
+    # If the passed in array (through args, left or right) has a length of 1, it is sorted and can be passed on to be merged
     if len(arr) == 1:
         return arr
 
     # Recursive case
     else:
+        pass
         # Split the array into two
+        left = arr[:len(arr)//2]
+        right = arr[len(arr)//2:]
 
+        # Run recursive on both halfs so that both left and right are split up even further
+        left = merge_sort(left)
+        right = merge_sort(right)
 
-        # Run recursive on both halfs
-
-        # return merge between the two
-
+        # return merge between the left and right.
+        arr = merge(left, right)
 
     return arr
+
+print(merge_sort([4, 1, 5, 7, 1, 4, 1, 55, 4124, 4123, 1, 4,15, 6, 0]))
 
 
 # STRETCH: implement an in-place merge sort algorithm
