@@ -30,13 +30,23 @@ def merge( arrA, arrB ):
     
     return merged_arr
 
-print(merge([1, 4, 6, 8], [2, 3, 5, 7]))
+# print(merge([1, 4], [5]))
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # Base case
+    if len(arr) == 1:
+        return arr
 
     # Recursive case
+    else:
+        # Split the array into two
+
+
+        # Run recursive on both halfs
+
+        # return merge between the two
+
 
     return arr
 
