@@ -3,13 +3,40 @@ def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )
     merged_arr = [0] * elements
     # TO-DO
+
+    # Loop over length of both combined lists
+    for i in range(elements):
+        # To handle cases where one of the arrays has already been emptied, check for length and work with the opposite
+        if (len(arrA)) == 0:
+            # Add ArrB[0] to merged_arr and remove it from ArrB
+            merged_arr[i] = arrB[0]
+            arrB.pop(0)
+
+        elif (len(arrB)) == 0:
+            # Add ArrA[0] to merged_arr and remove it from ArrA
+            merged_arr[i] = arrA[0]
+            arrA.pop(0)
+    
+        elif arrA[0] <= arrB[0]:
+            # Add ArrA[0] to merged_arr and remove it from ArrA
+            merged_arr[i] = arrA[0]
+            arrA.pop(0)
+
+        else:
+            # Add ArrB[0] to merged_arr and remove it from ArrB
+            merged_arr[i] = arrB[0]
+            arrB.pop(0)
+
     
     return merged_arr
 
+print(merge([1, 4, 6, 8], [2, 3, 5, 7]))
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
-    # TO-DO
+    # Base case
+
+    # Recursive case
 
     return arr
 
